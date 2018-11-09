@@ -20,6 +20,9 @@ public class PatternDatabase {
     public PatternDatabase(GameState st) {
         this.st = st;
         huristic = new int[st.getMaxX()][st.getMaxY()]; 
+
+        int nodesExpanded = 0;
+        
         
         // for each block position
         for(int blocki = 0; blocki < st.getMaxX(); blocki++)
@@ -55,7 +58,7 @@ public class PatternDatabase {
 	        			cost = path.size();		
 	        			if(cost < huristic[blocki][blockj]){
 	        				huristic[blocki][blockj] = cost;	
-	        			}	
+	        			}
 					} catch (Exception e) {
 						// if here its because there is no path to the goal
 						//System.out.println("couldn't find solution for relaxed state, player = ("+player.getX()+","+player.getY()+") block = ("+blocki+","+blockj+") | Error: " + e.toString());
@@ -64,6 +67,8 @@ public class PatternDatabase {
     	        }
         	}
         }
+
+
         // GameDisplay class extended to add class that draws huristics to new window, with lighter colours indicatiting a lower huristic value.
         // HuristicDisplay display = new HuristicDisplay(st,huristic);    
     }

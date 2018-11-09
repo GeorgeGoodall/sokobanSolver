@@ -85,5 +85,9 @@ public class SimpleSokobanAstarPlayer {
             System.out.println("No solution found.");
         return null;
     }
+
+    // public int getNodesExpanded(){
+    //     return totalNodes;
+    // }
    
 }
